@@ -1,0 +1,8 @@
+<template>
+    <div>
+        <template for:each={facetOptions} for:item="facetOption">
+            <c-pdp-facet-filter-item key={facetOption.facetId} facet-filter-item={facetOption} 
+            onfacetchanged={facetChanged}></c-pdp-facet-filter-item>
+        </template>
+    </div>
+</template>

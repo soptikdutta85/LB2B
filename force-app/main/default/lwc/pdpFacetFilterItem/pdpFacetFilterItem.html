@@ -1,0 +1,28 @@
+<template>
+    <div>
+        <lightning-checkbox-group name="Checkbox Group"
+                                    label={facetHeader}
+                                    options={facetOptions}
+                                    value={currentValue}
+                                    onchange={facetSelected}></lightning-checkbox-group>
+        <!--<p>Selected Values are: {selectedValues}</p>-->
+    </div>
+    <div class="slds-box">
+        <h2 class="header">{facetHeader}</h2>
+        <template for:each={facetOptions2} for:item="facetOption">
+            <lightning-input type="checkbox" key={facetOption.value} label={facetOption.label} checked={facetOption.isChecked}
+                onchange={facetSelected2} value={facetOption.value} name={facetOption.value} disabled={facetOption.isDisabled}>
+            </lightning-input>
+            <!--<template if:true={facetOption.isChecked}>
+                <lightning-input type="checkbox" key={facetOption.value} label={facetOption.label} checked
+                    onchange={facetSelected2} value={facetOption.value} name={facetOption.value}>
+                </lightning-input>
+            </template>
+            <template if:false={facetOption.isChecked}>
+                <lightning-input type="checkbox" key={facetOption.value} label={facetOption.label} checked="false"
+                    onchange={facetSelected2} value={facetOption.value} name={facetOption.value}>
+                </lightning-input>
+            </template>-->
+        </template>
+    </div>
+</template>

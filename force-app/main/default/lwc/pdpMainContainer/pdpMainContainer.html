@@ -1,0 +1,34 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item padding="around-small" size="12" class="right-align">
+            <c-pdp-product-count store-config-id={storeConfigId}></c-pdp-product-count>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small" size="12">
+            <lightning-layout multiple-rows="true">
+                <lightning-layout-item padding="around-small" size="4">
+                    &nbsp;
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="2">
+                    <c-pdp-page-size store-config-id={storeConfigId} onpagesizechanged={pageSizeChanged}></c-pdp-page-size>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="6" class="right-align">
+                    <c-pdp-sort-options store-config-id={storeConfigId} onsortchanged={sortOptionChanged}></c-pdp-sort-options>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small" size="12">
+            <lightning-layout multiple-rows="true">
+                <lightning-layout-item padding="around-small" size="4">
+                    <c-pdp-facet-filters store-config-id={storeConfigId} onfilterbyfacet={filterByFacet}></c-pdp-facet-filters>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="8">
+                    <c-pdp-product-results store-config-id={storeConfigId} onproductresultsupdated={productResultsUpdated}></c-pdp-product-results>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small" size="12" class="right-align">
+            <c-pdp-pagination store-config-id={storeConfigId} onshownextpage={nextPageSelected}>
+            </c-pdp-pagination>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

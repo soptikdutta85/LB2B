@@ -1,0 +1,6 @@
+<template>
+    <template for:each={productResults} for:item="productResult">
+        <c-pdp-product-result-item key={productResult.productId} product-result-item={productResult}
+            store-config-id={storeConfigId}></c-pdp-product-result-item>
+    </template>
+</template>

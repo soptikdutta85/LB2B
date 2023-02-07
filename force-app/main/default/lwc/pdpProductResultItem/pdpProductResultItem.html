@@ -1,0 +1,27 @@
+<template>
+    <lightning-layout>
+        <lightning-layout-item padding="around-small" size="3" class="right-align">
+            <div>
+                <img src={productImageUrl} alt={productResultItem.productName} class="productImage"/>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small" size="5" class="right-align">
+            <div>
+                {productResultItem.productName}
+            </div>
+            <div>
+                {LABELS.SkuLabel} {productResultItem.productSku}
+            </div>
+            <div>
+                {LABELS.PriceLabel} {unitPrice}
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small" size="2" class="right-align">
+            <lightning-input type="number" value="0" step="1">
+            </lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small" size="2" class="right-align">
+            <lightning-button variant="success" label={LABELS.AddToCartButtonText} title="Add To Cart" onclick={addToCartClicked} class="slds-m-left_x-small"></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

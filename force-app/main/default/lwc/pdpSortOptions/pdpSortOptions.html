@@ -1,0 +1,76 @@
+<template>
+    <lightning-button-group>
+        <template for:each={sortOptions} for:item="sortOption">
+            <template if:true={sortOption.hasBothAscDesc}>
+                <template if:true={sortOption.isSelected}>
+                    <template if:true={sortOption.isSelectedAscending}>
+                        <lightning-button key={sortOption.nameOrId} label={sortOption.displayName} title="Non-primary action" 
+                            onclick={sortOptionSelected} data-item={sortOption.descendingSortRuleId}
+                            variant="brand" icon-name="utility:chevronup"></lightning-button>
+                        <lightning-button-menu alternative-text="Show menu" key={sortOption.nameOrId} variant="brand">
+                            <lightning-menu-item value="MenuItemOne" label={sortOption.ascendingLabel} 
+                                data-item={sortOption.ascendingSortRuleId} onclick={sortOptionSelected}>
+                            </lightning-menu-item>
+                            <lightning-menu-item value="MenuItemTwo" label={sortOption.descendingLabel} 
+                                data-item={sortOption.descendingSortRuleId} onclick={sortOptionSelected}>
+                            </lightning-menu-item>
+                        </lightning-button-menu>
+                    </template>
+                    <template if:true={sortOption.isSelectedDescending}>
+                        <lightning-button key={sortOption.nameOrId} label={sortOption.displayName} title="Non-primary action" 
+                            onclick={sortOptionSelected} data-item={sortOption.ascendingSortRuleId}
+                            variant="brand" icon-name="utility:chevrondown">
+                        </lightning-button>
+                        <lightning-button-menu alternative-text="Show menu" key={sortOption.nameOrId} variant="brand">
+                            <lightning-menu-item value="MenuItemOne" label={sortOption.ascendingLabel} 
+                                data-item={sortOption.ascendingSortRuleId} onclick={sortOptionSelected}></lightning-menu-item>
+                            <lightning-menu-item value="MenuItemTwo" label={sortOption.descendingLabel} 
+                                data-item={sortOption.descendingSortRuleId} onclick={sortOptionSelected}></lightning-menu-item>
+                        </lightning-button-menu>
+                    </template>
+                </template>
+                <template if:false={sortOption.isSelected}>
+                    <lightning-button key={sortOption.nameOrId} label={sortOption.displayName} title="Non-primary action" 
+                        onclick={sortOptionSelected} data-item={sortOption.ascendingSortRuleId}></lightning-button>
+                    <lightning-button-menu alternative-text="Show menu" key={sortOption.nameOrId}>
+                        <lightning-menu-item value="MenuItemOne" label={sortOption.ascendingLabel} 
+                            data-item={sortOption.ascendingSortRuleId} onclick={sortOptionSelected} ></lightning-menu-item>
+                        <lightning-menu-item value="MenuItemTwo" label={sortOption.descendingLabel} 
+                            data-item={sortOption.descendingSortRuleId} onclick={sortOptionSelected} ></lightning-menu-item>
+                    </lightning-button-menu>
+                </template>
+            </template>
+
+            <template if:false={sortOption.hasBothAscDesc}>
+                <template if:true={sortOption.isSelected}>
+                    <template if:true={sortOption.isSelectedDescending}>
+                        <lightning-button key={sortOption.nameOrId} label={sortOption.displayName} title="Non-primary action" 
+                            onclick={sortOptionSelected}  
+                            variant="brand" icon-name="utility:chevrondown" data-item={sortOption.descendingSortRuleId}>
+                        </lightning-button>
+                    </template>
+                    <template if:true={sortOption.isSelectedAscending}>
+                        <lightning-button key={sortOption.nameOrId} label={sortOption.displayName} title="Non-primary action" 
+                            onclick={sortOptionSelected}  
+                            variant="brand" icon-name="utility:chevronup" data-item={sortOption.ascendingSortRuleId}>
+                        </lightning-button>
+                    </template>
+                </template>
+                <template if:false={sortOption.isSelected}>
+                    <template if:true={sortOption.showAscending}>
+                        <lightning-button key={sortOption.nameOrId} label={sortOption.displayName} title="Non-primary action" 
+                            onclick={sortOptionSelected} 
+                            data-item={sortOption.ascendingSortRuleId}>
+                        </lightning-button>
+                    </template>
+                    <template if:true={sortOption.showDescending}>
+                        <lightning-button key={sortOption.nameOrId} label={sortOption.displayName} title="Non-primary action" 
+                            onclick={sortOptionSelected} 
+                            data-item={sortOption.descendingSortRuleId}>
+                        </lightning-button>
+                    </template>
+                </template>
+            </template>
+        </template>
+    </lightning-button-group>
+</template>
